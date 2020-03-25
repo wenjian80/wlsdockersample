@@ -47,6 +47,9 @@ ds.setDynamicClusterSize(number_of_ms)
 ds.setMaxDynamicClusterSize(number_of_ms)
 ds.setCalculatedListenPorts(false)
 
+cd('/')
+cmo.setProductionModeEnabled(false)
+
 # Create Datasource
 # ==================
 cd("/")
