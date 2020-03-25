@@ -29,8 +29,6 @@ C:\Users\bjlim\Desktop\Kube_Lab\wlsdockersample>docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                            NAMES
 37dc159d29f7        mywls:v1            "/u01/oracle/user_pr…"   9 seconds ago       Up 8 seconds        0.0.0.0:7001->7001/tcp, 0.0.0.0:9002->9002/tcp   wlsadmin
 
-
-
 1. [mvn clean package]
 
 2. [Simplified tutorial used during Oracle Open World 2019 as HOL5213](tutorials/domain.home.in.image_oow.md)
