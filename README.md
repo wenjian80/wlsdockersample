@@ -1,4 +1,4 @@
-# Sample Wls Docker
+# Sample Wls Docker domain creation using wlst.
 
 ## Build simple app
 - mvn clean package
@@ -21,31 +21,65 @@
 - Create a file called domain.properties. Refer to domain.properties
 - In docker create a shared directory, Eg in window i place this domain.properties in D:\\1_dockershare\\docker-run
 - Run command "docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh"
-- Run command "docker ps" to see if the it is running.
+- Run command "docker ps -a" to see if the it is running.
 - You will see the below
-- C:\Users\bjlim\Desktop\Kube_Lab\wlsdockersample>docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh
-37dc159d29f7c7e9a1657517cd15cc147858ff14ac7de91ef9fb01509ebe8e7a
-
-C:\Users\bjlim\Desktop\Kube_Lab\wlsdockersample>docker ps
-CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                            NAMES
-37dc159d29f7        mywls:v1            "/u01/oracle/user_pr…"   9 seconds ago       Up 8 seconds        0.0.0.0:7001->7001/tcp, 0.0.0.0:9002->9002/tcp   wlsadmin
-
-1. [mvn clean package]
-
-2. [Simplified tutorial used during Oracle Open World 2019 as HOL5213](tutorials/domain.home.in.image_oow.md)
-(a.k.a. *Domain-home-in-image* version using WebLogic Operator 2.x)
-  - Install WebLogic Operator
-  - Deploy WebLogic domain on Kubernetes
-  - Scale WebLogic Cluster
-
-3. [Simplified tutorial used during Oracle Open World 2019 as HOL5213](tutorials/domain.home.in.image_oow.md)
-(a.k.a. *Domain-home-in-image* version using WebLogic Operator 2.x)
-  - Install WebLogic Operator
-  - Deploy WebLogic domain on Kubernetes
-  - Scale WebLogic Cluster
+- Access the console http://localhost:7001/console and logic via weblogic/welcome1 as defined in domain.properties
+- Run command "docker exec -it [container id when you have run docker ps] bash", example "docker exec -it 37dc159d29f7 bash" to go into the container.
+- You can make changes to the files system and do a commit to a different version. Example command "docker commit 37dc159d29f7 mywls:v2"
+- For example you can go into the console create a new cluster make changes and then commit. This is not recommended as the changes should be done in wlst.
+- Stop the container "docker stop 37dc159d29f7"
+- See log of container "docker container logs 37dc159d29f7"
+- Remove container "docker container rm  37dc159d29f7"
 
 
+## Start the managed server
+- Make sure your admin server is already up and running. Refer to previous steps.
+- Create a file boot.properties. Refer to domain.properties
+- In docker create a shared directory, Eg in window i place this boot.properties in D:\\1_dockershare\\docker-run
+- Run command "docker run -d --name=managed-server1 --hostname managed-server1 --link wlsadmin:wlsadmin -p 8001:8001 -v D:\\1_dockershare\\docker-run:/u01/oracle/user_projects/domains/sample-domain1/servers/managed-server1/security -v D:\\1_dockershare\\docker-run:/u01/oracle/properties  mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startManagedWebLogic.sh managed-server1 http://wlsadmin:7001 "
+- Go to weblogic console. http://localhost:7001/console. You will see the managed server is up.
+- Try accessing http://localhost:8001/opdemo/ to see the app
 
-### License ###
-Copyright (c) 2019 Oracle and/or its affiliates
-The Universal Permissive License (UPL), Version 1.0
+## References
+
+Weblogic docker image
+- https://hub.docker.com/_/oracle-weblogic-server-12c
+- https://container-registry.oracle.com
+- https://github.com/oracle/docker-images/tree/master/OracleWebLogic
+
+Weblogic operator
+- https://oracle.github.io/weblogic-kubernetes-operator/
+- https://github.com/oracle/weblogic-kubernetes-operator
+
+Monitoring exporter
+- https://github.com/oracle/weblogic-monitoring-exporter
+
+Logging exporter
+- https://github.com/oracle/weblogic-logging-exporter
+
+Weblogic WDT
+- https://github.com/oracle/weblogic-deploy-tooling
+
+Weblogic image tool, docker images
+- https://github.com/oracle/weblogic-image-tool
+
+White Paper steps
+- https://www.oracle.com/a/ocom/docs/engineered-systems/oracle-webLogic-server-on-pca.pdf
+
+Weblogic Tooling
+- https://github.com/oracle/weblogic-image-tool
+- https://github.com/oracle/weblogic-deploy-tooling
+
+Operator
+- https://oracle.github.io/weblogic-kubernetes-operator/userguide/introduction/
+- https://github.com/oracle/weblogic-kubernetes-operator
+
+Weblogic exporter for promethues
+- https://github.com/oracle/weblogic-monitoring-exporter
+
+Slack support
+- oracle-weblogic.slack.com
+- https://weblogic-slack-inviter.herokuapp.com/
+
+
+
