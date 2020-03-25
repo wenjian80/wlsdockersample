@@ -17,6 +17,7 @@
 - Run command "docker images". You will see the docker image being created.
 
 ## Start the admin server
+
 - Create a file called domain.properties. Refer to domain.properties
 - In docker create a shared directory, Eg in window i place this domain.properties in D:\\1_dockershare\\docker-run
 - Run command "docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh"
