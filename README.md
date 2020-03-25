@@ -17,11 +17,19 @@
 - Run command "docker images". You will see the docker image being created.
 
 ## Start the admin server
-- Create a file called domain.properties within the folder with the following content:
-username=weblogic
-password=welcome1
-
+- Create a file called domain.properties. Refer to domain.properties
+- In docker create a shared directory, Eg in window i place this domain.properties in D:\\1_dockershare\\docker-run
 - Run command "docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh"
+- Run command "docker ps" to see if the it is running.
+- You will see the below
+C:\Users\bjlim\Desktop\Kube_Lab\wlsdockersample>docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh
+37dc159d29f7c7e9a1657517cd15cc147858ff14ac7de91ef9fb01509ebe8e7a
+
+C:\Users\bjlim\Desktop\Kube_Lab\wlsdockersample>docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                            NAMES
+37dc159d29f7        mywls:v1            "/u01/oracle/user_pr…"   9 seconds ago       Up 8 seconds        0.0.0.0:7001->7001/tcp, 0.0.0.0:9002->9002/tcp   wlsadmin
+
+
 
 1. [mvn clean package]
 
