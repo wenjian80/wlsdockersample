@@ -12,6 +12,7 @@ Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we 
 - Using docker desktop https://docs.docker.com/docker-for-windows/install/
 - Do take note that Hyper-V and Containers Windows features must be enabled.
 - Go to Start -> Turn windows features on -> Select Hyper-V and Containers.
+- Apache Maven 3.6.1 is install to build a sample app.
 
 ## Build simple app
 - mvn clean package
@@ -20,7 +21,10 @@ Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we 
 - Login to docker hub
 - Search for weblogic
 - Agree to the agreement and test if you could pull down the docker image
-- docker pull store/oracle/weblogic:12.2.1.4-191221
+- Run command
+> docker pull store/oracle/weblogic:12.2.1.4-191221
+- Check if image is pull by running
+> docker images
 
 ## Docker create
 - Look at the contents of Dockerfile.create.
