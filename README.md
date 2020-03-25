@@ -7,6 +7,12 @@ We can even record the changes in weblogic console and then use back the recordi
 
 Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we are configure dynamic cluster.
 
+## Steps tested on below environment.
+- Running windows 10 64 bit.
+- Using docker desktop https://docs.docker.com/docker-for-windows/install/
+- Do take note that Hyper-V and Containers Windows features must be enabled.
+- Go to Start -> Turn windows features on -> Select Hyper-V and Containers.
+
 ## Build simple app
 - mvn clean package
 
