@@ -23,7 +23,7 @@ We can even record the changes in weblogic console and then use back the recordi
 > docker images  
 
 ## [Optional] Docker update
-- If image has been create and just want to update the app run the below command
+- If image has been create and just want to update the app run the below command and update the tag to mywls:v2
 > docker build --file Dockerfile.update --build-arg SOURCEIMAGE=mywls:v1 --force-rm=true -t mywls:v2 .
                     
 ## Start the admin server
