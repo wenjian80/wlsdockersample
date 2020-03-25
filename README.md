@@ -18,8 +18,10 @@ Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we 
 
 ## Docker create
 - Look at the contents of Dockerfile.create.
-- It is pulling the image, copy the war file and running a wlst script to create a domain
-- Examine the contents of model.py wlst
+- It is pulling the image, copy the war file and running a wlst script to create a domain.
+- We can also include os packages such as vim in the image so you run vi command, or you want to copy certain files into the image etc.
+- Examine the contents of model.py wlst, it is creating a domain and deploy certain resources.
+- In real life, your wls config will be ideally scripted in wlst. Although you can go into the console make changes and commit to a next version which we will explain below.
 - Run command 
 > docker build --file Dockerfile.create --force-rm=true -t mywls:v1 .
 - Run command. You will see the docker image being created.
@@ -41,9 +43,9 @@ Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we 
 - Access the console http://localhost:7001/console and logic via weblogic/welcome1 as defined in domain.properties
 - Run command, example "docker exec -it 37dc159d29f7 bash" to go into the container. 
 > docker exec -it [container id when you have run docker ps] bash
-- You can make changes to the files system and do a commit to a different version. Example command 
+- You can make changes to the files system and do a commit to a different version. Example command below.
+- For example you can go into the console create a new cluster make changes and then commit to a next version. This is not recommended as the changes should be done in wlst so every things is run as a script when making a docker container.
 > docker commit 37dc159d29f7 mywls:v2
-- For example you can go into the console create a new cluster make changes and then commit. This is not recommended as the changes should be done in wlst.
 - Stop the container 
 > docker stop 37dc159d29f7
 - See log of container 
