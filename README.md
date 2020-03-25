@@ -53,6 +53,12 @@
 - Go to weblogic console. http://localhost:7001/console. You will see the managed server is up.
 - Try accessing http://localhost:8001/opdemo/ to see the app
 
+## WLS operator
+- This image can then be used in weblogic operator.
+- Refer to https://oracle.github.io/weblogic-kubernetes-operator/ for details.
+- Scripts can be found in https://github.com/oracle/weblogic-kubernetes-operator/tree/master/kubernetes/samples/scripts to either choose domain in image model or pvc.
+- Previous labs in https://github.com/wenjian80/kubelab
+
 ## References
 
 Weblogic docker image
