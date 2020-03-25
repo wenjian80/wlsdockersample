@@ -18,6 +18,10 @@
 - Run command. You will see the docker image being created.
 > docker images  
 
+## [Optional] Docker update
+- If image has been create and just want to update the app run the below command
+> docker build --file Dockerfile.update --build-arg SOURCEIMAGE=mywls:v1 --force-rm=true -t mywls:v2 .
+                    
 ## Start the admin server
 
 - Create a file called domain.properties. Refer to domain.properties
