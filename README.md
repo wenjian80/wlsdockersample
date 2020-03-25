@@ -18,9 +18,8 @@
 
 ## Start the admin server
 - Create a file called domain.properties within the folder with the following content:
-username=weblogic
-password=welcome1
-
+    username=weblogic
+    password=welcome1
 - Run command "docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh"
 
 1. [mvn clean package]
