@@ -43,7 +43,7 @@ Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we 
                     
 ## Start the admin server
 
-- Create a file called domain.properties. Refer to domain.properties
+- Create a file called domain.properties. Refer to boo.properties
 - In docker create a shared directory, Eg in windows i place this domain.properties in D:\\1_dockershare\\docker-run
 - Refer to https://github.com/wenjian80/wlsdockersample/blob/master/shared_directory.JPG on shared directory in docker dekstop.
 - Run command 
@@ -66,7 +66,7 @@ Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we 
 
 ## Start the managed server
 - Make sure your admin server is already up and running. Refer to previous steps.
-- Create a file boot.properties. Refer to domain.properties
+- Create a file boot.properties. Refer to boot.properties
 - In docker create a shared directory, Eg in window i place this boot.properties in D:\\1_dockershare\\docker-run\\ms1
 - Run command 
 > docker run -d --name=managed-server1 --hostname managed-server1 --link wlsadmin:wlsadmin -p 8001:8001 -v D:\\1_dockershare\\docker-run\\ms1:/u01/oracle/user_projects/domains/sample-domain1/servers/managed-server1/security  mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startManagedWebLogic.sh managed-server1 http://wlsadmin:7001
@@ -79,7 +79,7 @@ Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we 
 - Scripts can be found in https://github.com/oracle/weblogic-kubernetes-operator/tree/master/kubernetes/samples/scripts/create-weblogic-domain to either choose domain in image model or pvc.
 - Previous labs in https://github.com/wenjian80/kubelab
 - Labs are on oracle cloud, using vanilla linux, with kubernetes installed via linux yum package.
-- Labs are using domain in pvc model using oracle shared file system, that can be change to use domain in image model as well.
+- Labs are using domain in image model and th files are in shared directory using oracle shared file system, that can be change to use domain in image pvc.
 
 ## References
 
