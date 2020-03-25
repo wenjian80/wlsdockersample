@@ -73,11 +73,13 @@ Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we 
 - Go to weblogic console. http://localhost:7001/console. You will see the managed server is up.
 - Try accessing http://localhost:8001/opdemo/ to see the app
 
-## WLS operator
+## WLS operator [Steps created in July 2019]
 - This image can then be used in weblogic operator.
 - Refer to https://oracle.github.io/weblogic-kubernetes-operator/ for details.
-- Scripts can be found in https://github.com/oracle/weblogic-kubernetes-operator/tree/master/kubernetes/samples/scripts to either choose domain in image model or pvc.
+- Scripts can be found in https://github.com/oracle/weblogic-kubernetes-operator/tree/master/kubernetes/samples/scripts/create-weblogic-domain to either choose domain in image model or pvc.
 - Previous labs in https://github.com/wenjian80/kubelab
+- Labs are on oracle cloud, using vanilla linux, with kubernetes installed via linux yum package.
+- Labs are using domain in pvc model using oracle shared file system, that can be change to use domain in image model as well.
 
 ## References
 
@@ -89,6 +91,7 @@ Weblogic docker image
 Weblogic operator
 - https://oracle.github.io/weblogic-kubernetes-operator/
 - https://github.com/oracle/weblogic-kubernetes-operator
+- https://github.com/oracle/weblogic-kubernetes-operator/tree/master/kubernetes/samples/scripts/
 
 Monitoring exporter
 - https://github.com/oracle/weblogic-monitoring-exporter
