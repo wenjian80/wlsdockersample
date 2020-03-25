@@ -1,4 +1,8 @@
 # Sample Wls Docker domain creation using wlst.
+There are few ways to package a image, either using wlst or using wdt.
+In this example we are using wlst, as wlst has been in wls for quite a long time and all features in console can be script in wlst.
+We can even record the changes in weblogic console and then use back the recording script (https://docs.oracle.com/middleware/1212/wls/WLACH/taskhelp/console/RecordWLSTScripts.html)
+(Refer to references for more details,).
 
 ## Build simple app
 - mvn clean package
@@ -79,6 +83,10 @@ Logging exporter
 
 Weblogic WDT
 - https://github.com/oracle/weblogic-deploy-tooling
+
+Weblogic WLST
+- https://docs.oracle.com/middleware/1212/wls/WLACH/taskhelp/console/RecordWLSTScripts.html
+- https://docs.oracle.com/middleware/12213/cross/wlsttasks.htm
 
 Weblogic image tool, docker images
 - https://github.com/oracle/weblogic-image-tool
