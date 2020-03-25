@@ -47,8 +47,6 @@ ds.setDynamicClusterSize(number_of_ms)
 ds.setMaxDynamicClusterSize(number_of_ms)
 ds.setCalculatedListenPorts(false)
 
-cd('/')
-cmo.setProductionModeEnabled(false)
 
 # Create Datasource
 # ==================
@@ -102,7 +100,7 @@ writeDomain(domain_path)
 closeTemplate()
 
 readDomain(domain_path)
-cmo.setProductionModeEnabled(true)
+cmo.setProductionModeEnabled(false)
 updateDomain()
 closeDomain()
 
