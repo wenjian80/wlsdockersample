@@ -36,7 +36,7 @@ Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we 
 > docker build --file Dockerfile.create --force-rm=true -t mywls:v1 .
 - Run command. You will see the docker image being created.
 > docker images  
-- If we do not want to pull the offical docker image from docker hub, we can install using image tool and build and patch your wls install from scrath. The same pricniple will apply and instead of pulling from the store, pull the weblogic binary from your own image that you have build
+- If we do not want to pull the offical docker image from docker hub, we can install using image tool and build and patch your wls install from scrath. The same pricniple will apply and instead of pulling from the store, pull the weblogic binary from your own image that you have build, look at Dockerfile.create line 3.
 - Refer to https://github.com/oracle/weblogic-image-tool
 
 ## [Optional] Docker update
