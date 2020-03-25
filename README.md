@@ -14,24 +14,30 @@
 - It is pulling the image, copy the war file and running a wlst script to create a domain
 - Examine the contents of model.py wlst
 - Run command 
-> "docker build --file Dockerfile.create --force-rm=true -t mywls:v1 ."
-- Run command 
-> "docker images". You will see the docker image being created.
+> docker build --file Dockerfile.create --force-rm=true -t mywls:v1 .
+- Run command. You will see the docker image being created.
+> docker images  
 
 ## Start the admin server
 
 - Create a file called domain.properties. Refer to domain.properties
 - In docker create a shared directory, Eg in window i place this domain.properties in D:\\1_dockershare\\docker-run
-- Run command "docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh"
-- Run command "docker ps -a" to see if the it is running.
-- You will see the below
+- Run command 
+> docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh
+- Run command to see if the it is running.
+> docker ps -a 
 - Access the console http://localhost:7001/console and logic via weblogic/welcome1 as defined in domain.properties
-- Run command "docker exec -it [container id when you have run docker ps] bash", example "docker exec -it 37dc159d29f7 bash" to go into the container.
-- You can make changes to the files system and do a commit to a different version. Example command "docker commit 37dc159d29f7 mywls:v2"
+- Run command, example "docker exec -it 37dc159d29f7 bash" to go into the container. 
+> docker exec -it [container id when you have run docker ps] bash
+- You can make changes to the files system and do a commit to a different version. Example command 
+> docker commit 37dc159d29f7 mywls:v2
 - For example you can go into the console create a new cluster make changes and then commit. This is not recommended as the changes should be done in wlst.
-- Stop the container "docker stop 37dc159d29f7"
-- See log of container "docker container logs 37dc159d29f7"
-- Remove container "docker container rm  37dc159d29f7"
+- Stop the container 
+> docker stop 37dc159d29f7
+- See log of container 
+> docker container logs 37dc159d29f7
+- Remove container 
+>docker container rm  37dc159d29f7
 
 
 ## Start the managed server
