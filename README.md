@@ -25,7 +25,8 @@
 ## Start the admin server
 
 - Create a file called domain.properties. Refer to domain.properties
-- In docker create a shared directory, Eg in window i place this domain.properties in D:\\1_dockershare\\docker-run
+- In docker create a shared directory, Eg in windows i place this domain.properties in D:\\1_dockershare\\docker-run
+- Refer to https://github.com/wenjian80/wlsdockersample/blob/master/shared_directory.JPG on shared directory in docker dekstop.
 - Run command 
 > docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh
 - Run command to see if the it is running.
@@ -47,7 +48,7 @@
 ## Start the managed server
 - Make sure your admin server is already up and running. Refer to previous steps.
 - Create a file boot.properties. Refer to domain.properties
-- In docker create a shared directory, Eg in window i place this boot.properties in D:\\1_dockershare\\docker-run
+- In docker create a shared directory, Eg in window i place this boot.properties in D:\\1_dockershare\\docker-run\\ms1
 - Run command 
 > docker run -d --name=managed-server1 --hostname managed-server1 --link wlsadmin:wlsadmin -p 8001:8001 -v D:\\1_dockershare\\docker-run\\ms1:/u01/oracle/user_projects/domains/sample-domain1/servers/managed-server1/security  mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startManagedWebLogic.sh managed-server1 http://wlsadmin:7001
 - Go to weblogic console. http://localhost:7001/console. You will see the managed server is up.
