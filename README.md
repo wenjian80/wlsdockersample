@@ -23,8 +23,7 @@
 - Run command "docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh"
 - Run command "docker ps" to see if the it is running.
 - You will see the below
-
-C:\Users\bjlim\Desktop\Kube_Lab\wlsdockersample>docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh
+- C:\Users\bjlim\Desktop\Kube_Lab\wlsdockersample>docker run -d -p 7001:7001 -p 9002:9002 --name=wlsadmin --hostname wlsadmin -v D:\\1_dockershare\\docker-run:/u01/oracle/properties -e ADMINISTRATION_PORT_ENABLED=true mywls:v1 /u01/oracle/user_projects/domains/sample-domain1/bin/startWebLogic.sh
 37dc159d29f7c7e9a1657517cd15cc147858ff14ac7de91ef9fb01509ebe8e7a
 
 C:\Users\bjlim\Desktop\Kube_Lab\wlsdockersample>docker ps
