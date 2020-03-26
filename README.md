@@ -1,3 +1,5 @@
+#last edited 26/03/2020
+
 # Sample Wls Docker domain creation using wlst.
 There are few ways to package a image, either using wlst or using wdt.
 
