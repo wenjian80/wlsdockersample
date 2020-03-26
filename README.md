@@ -45,7 +45,7 @@ Wls operator Kubernetes make use of dynamic cluster to scale, so in the wlst we 
                     
 ## Start the admin server
 
-- Create a file called domain.properties. Refer to boo.properties
+- Create a file called domain.properties. Refer to domain.properties
 - In docker create a shared directory, Eg in windows i place this domain.properties in D:\\1_dockershare\\docker-run
 - Refer to https://github.com/wenjian80/wlsdockersample/blob/master/shared_directory.JPG on shared directory in docker dekstop.
 - Run command 
